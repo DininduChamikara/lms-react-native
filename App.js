@@ -13,7 +13,7 @@ import {
   EnrollmentsIcon,
   GradeIcon,
   LogoutIcon,
-  CloseButtonIcon
+  CloseButtonIcon,
 } from "./lib/icons/icons";
 import DashboardScreen from "./screens/DashboardScreen/DashboardScreen";
 import EnrollmentScreen from "./screens/EnrolmentScreen/EnrollmentScreen";
@@ -85,18 +85,22 @@ export default function App() {
           paddingVertical: 80,
           borderRadius: showMenu ? 15 : 0,
           // transforming view..
-          transform: [
-            { scale: scaleValue }, 
-            { translateX: offsetValue }],
+          transform: [{ scale: scaleValue }, { translateX: offsetValue }],
         }}
       >
         {
           // menu bar button
         }
 
-        <Animated.View  style={{transform: [{
-          translateY: closeButtonOffset
-        }]}}>
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateY: closeButtonOffset,
+              },
+            ],
+          }}
+        >
           <TouchableOpacity
             onPress={() => {
               // do actions here
@@ -133,12 +137,10 @@ export default function App() {
             >
               {currentTab}
             </Text>
-            {currentTab === "Dashboard" && <DashboardScreen/>}
-            {currentTab === "Enrollments" && <EnrollmentScreen/>}
-            {currentTab === "Grades" && <GradeScreen/>}
-
-
           </TouchableOpacity>
+          {currentTab === "Dashboard" && <DashboardScreen />}
+          {currentTab === "Enrollments" && <EnrollmentScreen />}
+          {currentTab === "Grades" && <GradeScreen />}
         </Animated.View>
       </Animated.View>
     </SafeAreaView>
