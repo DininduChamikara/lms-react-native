@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import React, { Component, useState } from "react";
 import { Switch } from "react-native";
 
-const CardView = ({title}) => {
+const CourseCardView = ({title}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
@@ -37,4 +37,4 @@ const CardView = ({title}) => {
   );
 };
 
-export default CardView;
+export default CourseCardView;
