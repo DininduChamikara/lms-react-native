@@ -14,11 +14,11 @@ import {
     GradeIcon,
     LogoutIcon,
     CloseButtonIcon,
+    NotificationIcon,
   } from "../../lib/icons/icons";
 import DashboardScreen from "../DashboardScreen/DashboardScreen";
 import EnrollmentScreen from "../EnrolmentScreen/EnrollmentScreen";
-import GradeScreen from "../GradeScreen/GradeScreen";
- 
+import NotificationScreen from "../NotificationScreen/NotificationScreen";
 
 export default function MainMenu({setIsLogged, userType}) {
     const [currentTab, setCurrentTab] = useState("Dashboard");
@@ -61,7 +61,7 @@ export default function MainMenu({setIsLogged, userType}) {
   
             {TabButton(currentTab, setCurrentTab, "Dashboard", "dashboard")}
             {TabButton(currentTab, setCurrentTab, "Enrollments", "enrollments")}
-            {TabButton(currentTab, setCurrentTab, "Grades", "grades")}
+            {userType === "Student" && TabButton(currentTab, setCurrentTab, "Notifications", "notifications")}
           </View>
   
           <View>{TabButton(currentTab, setCurrentTab, "Log out", "logout", setIsLogged)}</View>
@@ -139,7 +139,7 @@ export default function MainMenu({setIsLogged, userType}) {
             </TouchableOpacity>
             {currentTab === "Dashboard" && <DashboardScreen />}
             {currentTab === "Enrollments" && <EnrollmentScreen userType={userType} />}
-            {currentTab === "Grades" && <GradeScreen />}
+            {currentTab === "Notifications" && <NotificationScreen />}
           </Animated.View>
         </Animated.View>
       </SafeAreaView>
@@ -173,7 +173,7 @@ export default function MainMenu({setIsLogged, userType}) {
         >
           {iconId === "dashboard" && DashboardIcon}
           {iconId === "enrollments" && EnrollmentsIcon}
-          {iconId === "grades" && GradeIcon}
+          {iconId === "notifications" && NotificationIcon}
           {iconId === "logout" && LogoutIcon}
   
           <Text

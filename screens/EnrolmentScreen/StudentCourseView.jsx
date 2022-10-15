@@ -15,10 +15,10 @@ const StudentCourseView = () => {
           Announcements
         </Text>
         <ScrollView style={{ marginVertical: 0, height: "33%" }}>
-          <AnnouncementCard />
-          <AnnouncementCard />
-          <AnnouncementCard />
-          <AnnouncementCard />
+          <AnnouncementCard actionText={"Achieve"}/>
+          <AnnouncementCard actionText={"Achieve"}/>
+          <AnnouncementCard actionText={"Achieve"}/>
+          <AnnouncementCard actionText={"Achieve"}/>
         </ScrollView>
       </View>
   );

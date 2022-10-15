@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import React, { Component } from "react";
 import { TouchableOpacity } from "react-native";
 
-const AnnouncementCard = ({ actionText }) => {
+const NotificationCard = ({ lecturerName }) => {
   return (
     <View
       style={{
@@ -13,6 +13,17 @@ const AnnouncementCard = ({ actionText }) => {
       }}
     >
       <View>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "bold",
+            fontStyle: "italic",
+            marginVertical: 0,
+            color: "yellow",
+          }}
+        >
+          Subject Name
+        </Text>
         <Text
           style={{
             fontSize: 20,
@@ -69,7 +80,7 @@ const AnnouncementCard = ({ actionText }) => {
                   color: "yellow",
                 }}
               >
-                {actionText}
+                {lecturerName}
               </Text>
             </TouchableOpacity>
           </View>
@@ -79,4 +90,4 @@ const AnnouncementCard = ({ actionText }) => {
   );
 };
 
-export default AnnouncementCard;
+export default NotificationCard;
