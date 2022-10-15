@@ -5,7 +5,7 @@ import AllEnrollments from "./AllEnrollments";
 import EnrolledCourseView from "./EnrolledCourseView";
 
 // export class EnrollmentScreen extends Component {
-const EnrollmentScreen = () => {
+const EnrollmentScreen = ({userType}) => {
 
   const [currentView, setCurrentView] = useState("All Enrollments");
   const [courseId, setCourseId] = useState("INTE_22222")
@@ -13,7 +13,7 @@ const EnrollmentScreen = () => {
   return (
     <View>
       {currentView === "All Enrollments" && <AllEnrollments setCurrentView = {setCurrentView} setCourseId={setCourseId}/>}
-      {currentView === "Enrolled Course" && <EnrolledCourseView setCurrentView = {setCurrentView} courseId={courseId}/>}
+      {currentView === "Enrolled Course" && <EnrolledCourseView setCurrentView = {setCurrentView} courseId={courseId} userType = {userType}/>}
     </View>
   );
 };

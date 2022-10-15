@@ -27,3 +27,11 @@ export const CloseButtonIcon = (
     <AntDesign name="close" size={35} color="black" />
 );
 
+export const ProfileIcon = (
+    <AntDesign name="user" size={24} color="#5359D1" />
+);
+
+export const LockIcon = (
+    <AntDesign name="lock1" size={24} color="#5359D1" />
+);
+

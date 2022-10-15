@@ -1,9 +1,9 @@
 import { ScrollView, Text, View } from "react-native";
 import React, { Component, useState } from "react";
-import CourseEvoluvationCard from "../../components/CourseEvoluvationCard/CourseEvoluvationCard";
-import AnnouncementCard from "../../components/AnnouncementCard/AnnouncementCard";
+import StudentCourseView from "./StudentCourseView";
+import LecturerCourseView from "./LecturerCourseView";
 
-function EnrolledCourseView({ courseId }) {
+function EnrolledCourseView({ courseId, userType }) {
   const [courseName, setCourseName] = useState("Web Application Development");
 
   // course name should retrive from the database
@@ -34,19 +34,10 @@ function EnrolledCourseView({ courseId }) {
           {courseName}
         </Text>
       </View>
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginVertical: 10 }}>
-        Evoluvation & Grades
-      </Text>
-      <CourseEvoluvationCard />
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginVertical: 10 }}>
-        Announcements
-      </Text>
-      <ScrollView style={{ marginVertical: 0, height: "33%" }}>
-        <AnnouncementCard />
-        <AnnouncementCard />
-        <AnnouncementCard />
-        <AnnouncementCard />
-      </ScrollView>
+
+      {userType === "Student" && <StudentCourseView/> }
+      {userType === "Lecturer" && <LecturerCourseView/> }
+
     </View>
   );
 }

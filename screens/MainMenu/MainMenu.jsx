@@ -20,7 +20,7 @@ import EnrollmentScreen from "../EnrolmentScreen/EnrollmentScreen";
 import GradeScreen from "../GradeScreen/GradeScreen";
  
 
-export default function MainMenu() {
+export default function MainMenu({setIsLogged, userType}) {
     const [currentTab, setCurrentTab] = useState("Dashboard");
     // to get the current status of menu
     const [showMenu, setShowMenu] = useState(false);
@@ -51,7 +51,7 @@ export default function MainMenu() {
               color: "white",
             }}
           >
-            Student
+            {userType}
           </Text>
   
           <View style={{ flexGrow: 1, marginTop: 50 }}>
@@ -64,7 +64,7 @@ export default function MainMenu() {
             {TabButton(currentTab, setCurrentTab, "Grades", "grades")}
           </View>
   
-          <View>{TabButton(currentTab, setCurrentTab, "Log out", "logout")}</View>
+          <View>{TabButton(currentTab, setCurrentTab, "Log out", "logout", setIsLogged)}</View>
         </View>
   
         {
@@ -138,7 +138,7 @@ export default function MainMenu() {
               </Text>
             </TouchableOpacity>
             {currentTab === "Dashboard" && <DashboardScreen />}
-            {currentTab === "Enrollments" && <EnrollmentScreen />}
+            {currentTab === "Enrollments" && <EnrollmentScreen userType={userType} />}
             {currentTab === "Grades" && <GradeScreen />}
           </Animated.View>
         </Animated.View>
@@ -147,12 +147,13 @@ export default function MainMenu() {
   }
   
   // for multiple buttons...
-  const TabButton = (currentTab, setCurrentTab, title, iconId) => {
+  const TabButton = (currentTab, setCurrentTab, title, iconId, setIsLogged) => {
     return (
       <TouchableOpacity
         onPress={() => {
           if (title === "Log out") {
             // Do staff
+            setIsLogged(false)
           } else {
             setCurrentTab(title);
           }
